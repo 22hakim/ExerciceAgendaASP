@@ -11,7 +11,7 @@ build_property.RootNamespace = correction
 build_property.ProjectDir = C:\Users\IntervenantV\source\repos\OPP_LA_MANU\correction\correction\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\IntervenantV\source\repos\OPP_LA_MANU\correction\correction
 build_property._RazorSourceGeneratorDebug = 
 
