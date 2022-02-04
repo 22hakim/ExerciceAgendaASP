@@ -14,8 +14,7 @@
             <th>#Id</th>
             <th>Nom</th>
             <th>Prénom</th>
-            <th>Mail</th>
-            <th>Telephone</th>
+            <th>Detail</th>
         </tr>
     </thead>
     <tbody>
@@ -25,8 +24,12 @@
                 <td> @broker.IdBroker</td>
                 <td> @broker.Lastname </td>
                 <td> @broker.Firstname </td>
-                <td> @broker.Mail </td>
-                <td> @broker.PhoneNumber </td>
+                <td>
+                    <a class="btn btn-primary" 
+                        asp-controller="Broker" 
+                        asp-action="Edit" 
+                        asp-route-id="@broker.IdBroker"> Afficher Detail</a>
+                </td>
             </tr>
         }
     </tbody>

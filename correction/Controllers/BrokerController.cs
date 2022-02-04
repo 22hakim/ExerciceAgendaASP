@@ -42,5 +42,21 @@ namespace correction.Controllers
             }
             return View();
         }
+
+        public IActionResult Edit(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return RedirectToAction("Index");
+            }
+            var broker = _dbConnect.Brokers.Find(id);
+
+            if (broker == null)
+            {
+                return NotFound();
+            }
+
+            return View(broker);
+        }
     }
 }
