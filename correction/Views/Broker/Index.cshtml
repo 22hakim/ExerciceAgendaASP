@@ -1,7 +1,33 @@
-﻿
+﻿@model IEnumerable<Broker>
 @{
+    ViewData["Title"] = " Liste Brokers";
 }
 
 <div class="m-5 d-flex justify-content-between">
     <h2> Liste des Courtiers </h2>
 </div>
+
+
+<table class="table" style="width:100%">
+    <thead>
+        <tr>
+            <th>#Id</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Mail</th>
+            <th>Telephone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach( var broker in Model)
+        {
+            <tr>
+                <td> @broker.IdBroker</td>
+                <td> @broker.Lastname </td>
+                <td> @broker.Firstname </td>
+                <td> @broker.Mail </td>
+                <td> @broker.PhoneNumber </td>
+            </tr>
+        }
+    </tbody>
+</table>

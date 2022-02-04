@@ -16,7 +16,8 @@ namespace correction.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Broker> BrokerList = _dbConnect.Brokers;
+            return View(BrokerList);
         }
 
         public IActionResult Add()
