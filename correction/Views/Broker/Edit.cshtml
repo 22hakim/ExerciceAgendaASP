@@ -7,7 +7,10 @@
     <h2> Modifier un Courtier </h2>
 </div>
 
-
+@{
+   var data = ViewBag.Broker;
+}
+<p>@data.Firstname</p>
 <form method="post" style="width:75%;margin:auto">
     <div class="mb-3">
         <label asp-for="Firstname"></label>

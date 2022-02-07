@@ -56,7 +56,30 @@ namespace correction.Controllers
                 return NotFound();
             }
 
+            ViewBag.Broker = broker;
+
             return View(broker);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, Broker broker)
+        {
+            // j'utilise l'ID trouvé dans l'url pour savoir quel broker modifier
+            broker.IdBroker = id;
+
+            if (ModelState.IsValid)
+            {
+                _dbConnect.Brokers.Update(broker);
+                _dbConnect.SaveChanges();
+
+                TempData["success"] = "le courtier a bien été modifié";
+
+                return RedirectToAction("Index", "Home");
+
+            }
+
+            return View();
         }
     }
 }
