@@ -14,9 +14,7 @@
             <th>#Id</th>
             <th>Nom</th>
             <th>Prénom</th>
-            <th>Mail</th>
-            <th>Tél</th>
-            <th>Budget</th>
+            <th>Détails</th>
         </tr>
     </thead>
     <tbody>
@@ -26,9 +24,12 @@
                 <td> @customer.IdCustomer</td>
                 <td> @customer.Lastname </td>
                 <td> @customer.Firstname </td>
-                <td> @customer.Mail</td>
-                <td> @customer.PhoneNumber </td>
-                <td> @customer.Budget </td>
+                <td>
+                    <a  asp-controller="Customer" 
+                        asp-action="Detail" 
+                        asp-route-id="@customer.IdCustomer" 
+                        class="btn-danger btn">Details </a>
+                </td>
 
             </tr>
         }

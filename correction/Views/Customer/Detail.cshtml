@@ -1,0 +1,38 @@
+﻿@model Customer
+@{
+}
+<h1> Détail du client </h1>
+<table class="table table-bordered">
+  <thead>
+        <tr>
+            <th scope="col">Information</th>
+            <th scope="col">Détail</th>
+        </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Id</th>
+      <td>@Model.IdCustomer</td>
+    </tr>
+    <tr>
+      <th scope="row">Nom</th>
+      <td>@Model.Lastname</td>
+    </tr>
+    <tr>
+      <th scope="row">Prénom</th>
+      <td>@Model.Firstname</td>
+    </tr>
+    <tr>
+      <th scope="row">Mail</th>
+      <td>@Model.Mail</td>
+    </tr>
+    <tr>
+      <th scope="row">Téléphone</th>
+      <td>@Model.PhoneNumber</td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+<a asp-action="Edit" asp-controller="Customer" class="btn-warning btn"asp-route-id="@Model.IdCustomer">
+    modifier
+</a>

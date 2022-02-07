@@ -25,7 +25,7 @@ namespace correction.Models
         public string Mail { get; set; } = null!;
 
         [Required(ErrorMessage = "Le champs doit être rempli."), Display(Name = "Numéro de Telephone")]
-        [Range(10, 10, ErrorMessage = "un numero de telephone doit contenir 10 caracteres.")]
+        [StringLength(10, ErrorMessage = "un numero de telephone doit contenir 10 caracteres.")]
         public string PhoneNumber { get; set; } = null!;
 
         [Required(ErrorMessage = "Le champs doit être rempli."), Display(Name = "Budget")]
