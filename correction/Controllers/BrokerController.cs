@@ -65,7 +65,7 @@ namespace correction.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, Broker broker)
         {
-            // j'utilise l'ID trouvé dans l'url pour savoir quel broker modifier
+            // j'utilise l'ID trouvé dans l'url pour savoir quel broker modifier   
             broker.IdBroker = id;
 
             if (ModelState.IsValid)

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Customer>
+@{
+    ViewData["Title"] = " Liste Clients";
+}
+
+<div class="m-5 d-flex justify-content-between">
+    <h2> Liste des Clients </h2>
+</div>
+
+
+<table class="table" style="width:100%">
+    <thead>
+        <tr>
+            <th>#Id</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Mail</th>
+            <th>Tél</th>
+            <th>Budget</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach( var customer in Model)
+        {
+            <tr>
+                <td> @customer.IdCustomer</td>
+                <td> @customer.Lastname </td>
+                <td> @customer.Firstname </td>
+                <td> @customer.Mail</td>
+                <td> @customer.PhoneNumber </td>
+                <td> @customer.Budget </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
