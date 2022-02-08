@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\IntervenantV\source\repos\OPP_LA_MANU\correction\correction
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/IntervenantV/source/repos/OPP_LA_MANU/correction/correction/Views/Appointment/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRcQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/IntervenantV/source/repos/OPP_LA_MANU/correction/correction/Views/Broker/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJva2VyXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

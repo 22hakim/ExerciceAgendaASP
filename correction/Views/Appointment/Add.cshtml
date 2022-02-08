@@ -1,0 +1,44 @@
+﻿@model Appointment
+@{
+    ViewData["Title"] = " Ajouter un rendez vous";
+}
+
+
+<div class="m-5 d-flex justify-content-between">
+    <h2> Ajouter un Rendez vous </h2>
+</div>
+
+@{
+    if(ViewBag.test != null)
+    {
+        <p>@ViewBag.test</p>
+    }
+}
+
+<form method="post" style="width:75%;margin:auto">
+    <select asp-for="IdBroker">
+    @foreach (Broker b in @ViewBag.Brokers)
+    {
+        <option value="@b.IdBroker"> @b.Firstname @b.Lastname</option>
+    }
+    </select>
+    <div class="mb-3">
+        <label asp-for="Subject"></label>
+        <textarea asp-for="Subject" class="form-control" /></textarea>
+        <span asp-validation-for="Subject" class="text-danger"></span>
+    </div>
+    <div>
+        <input datetime asp-for="DateHour" />
+    </div>
+    <select asp-for="IdCustomer">
+    @foreach (Customer c in @ViewBag.Customers)
+    {
+        <option value="@c.IdCustomer"> @c.Firstname @c.Lastname</option>
+    }
+    </select>
+
+    <div class="text-center m-4 p-2">
+        <button class="btn btn-secondary" style="width:100px">Ajouter</button>
+        <a class="btn btn-secondary" asp-controller="Broker" asp-action="Index">Revenir aux courtiers</a>
+    </div>
+</form>
