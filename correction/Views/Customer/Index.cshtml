@@ -28,7 +28,11 @@
                     <a  asp-controller="Customer" 
                         asp-action="Detail" 
                         asp-route-id="@customer.IdCustomer" 
-                        class="btn-danger btn">Details </a>
+                        class="btn-info btn">Details </a>
+                    <a  asp-controller="Customer" 
+                        asp-action="Delete" 
+                        asp-route-id="@customer.IdCustomer" 
+                        class="btn-danger btn">Supprimer </a>
                 </td>
 
             </tr>

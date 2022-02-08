@@ -12,6 +12,6 @@ namespace correction.Models
         public int IdBroker { get; set; }
 
         public virtual Broker IdBrokerNavigation { get; set; } = null!;
-        public virtual Customer IdCustomerNavigation { get; set; } = null!;
+        public virtual Customer? IdCustomerNavigation { get; set; } = null!;
     }
 }

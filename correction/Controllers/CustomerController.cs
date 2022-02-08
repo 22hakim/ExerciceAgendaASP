@@ -98,6 +98,35 @@ namespace correction.Controllers
             return View();
         }
 
+        public IActionResult Delete(int? id)
+        {
+            // si j'ai pas d'id je retourne a la liste des customers
+            if (id == null || id == 0)
+            {
+                return RedirectToAction("Index");
+            }
+            var customer = _dbConnect.Customers.Find(id);
+
+            if (customer == null)
+            {
+                return NotFound();
+            }
+            return View(customer);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Customer cus, int id)
+        {
+            cus.IdCustomer = id;
+
+            _dbConnect.Customers.Remove(cus);
+            _dbConnect.SaveChanges();
+             
+            TempData["success"] = "le client a bien été supprimé";
+
+            return RedirectToAction("Index");
+        }
+
         public IEnumerable<Customer> GetAllCutomers()
         {
             List<Customer> customers = new List<Customer>();
@@ -134,6 +163,5 @@ namespace correction.Controllers
 
             return customers;
         }
-
     }
 }

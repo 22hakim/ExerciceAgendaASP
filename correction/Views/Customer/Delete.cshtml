@@ -1,0 +1,29 @@
+﻿@model Customer
+@{
+    ViewData["Title"] = " Supprimer un Client";
+}
+
+
+<div class="m-5 d-flex justify-content-between">
+    <h2> Voulez vous vraiment supprimer le client ?</h2>
+</div>
+
+
+<form method="post" style="width:75%;margin:auto">
+    <div class="mb-3">
+        <label asp-for="Firstname"></label>
+        <input asp-for="Firstname" class="form-control" disabled/>
+    </div>    
+    <div class="mb-3">
+        <label asp-for="Lastname"></label>
+        <input asp-for="Lastname" class="form-control" disabled/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Mail"></label>
+        <input asp-for="Mail" class="form-control" disabled/>
+    </div>
+    <div class="text-center m-4 p-2">
+        <button class="btn btn-danger" style="width:100px">Supprimer</button>
+        <a class="btn btn-secondary" asp-controller="Customer" asp-action="Index">Revenir aux Clients</a>
+    </div>
+</form>

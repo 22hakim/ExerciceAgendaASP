@@ -55,13 +55,13 @@ namespace correction.Data
                 entity.HasOne(d => d.IdBrokerNavigation)
                     .WithMany(p => p.Appointments)
                     .HasForeignKey(d => d.IdBroker)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.ClientNoAction)
                     .HasConstraintName("appointments_brokers0_FK");
 
                 entity.HasOne(d => d.IdCustomerNavigation)
                     .WithMany(p => p.Appointments)
                     .HasForeignKey(d => d.IdCustomer)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.ClientNoAction)
                     .HasConstraintName("appointments_customers_FK");
             });
 
