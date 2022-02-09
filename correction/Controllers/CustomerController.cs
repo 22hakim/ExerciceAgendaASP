@@ -16,9 +16,16 @@ namespace correction.Controllers
             _dbString = "Server=localhost;Database=agenda;Trusted_Connection=True";
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? searchString)
         {
-            IEnumerable<Customer> customers = GetAllCutomers();
+            var customers = from c in _dbConnect.Customers select c;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                customers = customers.Where(s => s.Lastname!.Contains(searchString) || s.Firstname.Contains(searchString));
+                return View(customers.ToList());
+            }
+
             return View(customers);
         }
 
