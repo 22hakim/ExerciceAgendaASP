@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using correction.Data;
 using correction.Models;
 using System.Dynamic;
+using Microsoft.EntityFrameworkCore;
 
 namespace correction.Controllers
 {
@@ -41,8 +42,18 @@ namespace correction.Controllers
         public ActionResult Add(Appointment a)
         {
 
-            if(a.Subject != null && a.DateHour != null)
+            a.DateHour = makeDate(a.DateHour);
+
+            if(chekDate(a.DateHour, a.IdBroker))
             {
+                TempData["success"] = "Un rendez vous existe deja a cette heure ci";
+                ViewBag.Customers = GetCustomers();
+                ViewBag.Brokers = GetBrokers();
+                return View();
+            }
+
+            if(a.Subject != null && a.DateHour != null)
+            { 
                 _dbConnect.Add(a);
                 _dbConnect.SaveChanges();
 
@@ -89,6 +100,21 @@ namespace correction.Controllers
             {
                 return View();
             }
+        }
+
+        public static DateTime makeDate(DateTime date)
+        {
+            int min = date.Minute;
+            min = (min > 30) ? 30 : 00;
+
+            return new DateTime(date.Year, date.Month, date.Day, date.Hour, min, 00);
+
+        }
+
+        // retourne vrai si la date existe deja 
+        public bool chekDate(DateTime date,int idBroker)
+        {
+            return _dbConnect.Brokers.Include(b => b.Appointments).FirstOrDefault(x => x.IdBroker == idBroker).Appointments.Any(x => x.DateHour == date);
         }
     }
 }
