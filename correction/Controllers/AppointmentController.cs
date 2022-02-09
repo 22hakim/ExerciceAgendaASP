@@ -16,11 +16,7 @@ namespace correction.Controllers
         {
             _dbConnect = connexionDb;
         }
-        // GET: AppointmentController
-        public ActionResult Index()
-        {
-            return View();
-        }
+
 
         // GET: AppointmentController/Details/5
         public ActionResult Details(int id)

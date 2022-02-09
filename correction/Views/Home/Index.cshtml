@@ -1,8 +1,41 @@
-﻿@{
+﻿@model IEnumerable<correction.Models.AppointmentViewModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="m-5 d-flex justify-content-between">
+    <h2> Liste des Rendez vous </h2>
 </div>
+
+
+<table class="table" style="width:100%">
+    <thead>
+        <tr>
+            <th scope="col">#id</th>
+            <th scope="col">Date</th>
+            <th scope="col">Sujet</th>
+            <th scope="col">Courtier </th>
+            <th scope="col">Client </th>
+            <th scope="col">Suppression</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach( var appointment in Model)
+        {
+            <tr>
+                <th scope="row">@appointment.AppointmentVm.IdAppointment</th>
+                <td>@appointment.AppointmentVm.DateHour</td>
+                <td>@appointment.AppointmentVm.Subject</td>
+                <td>@appointment.BrokerInfo.Firstname @appointment.BrokerInfo.Lastname</td>
+                <td>@appointment.CustomerInfo.Firstname @appointment.CustomerInfo.Lastname</td>
+                <td>
+                    <a  asp-controller="Appointement" 
+                        asp-action="Delete" 
+                        asp-route-id="@appointment.AppointmentVm.IdAppointment" 
+                        class="btn-danger btn">Supprimer </a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
