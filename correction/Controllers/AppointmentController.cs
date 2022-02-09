@@ -78,25 +78,32 @@ namespace correction.Controllers
 
 
         // GET: AppointmentController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+
+            if (id == null || id == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var a = _dbConnect.Appointments.Find(id);
+
+            if(a == null)
+            {
+                TempData["success"] = "Aucun rendez vous trouvé";
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            _dbConnect.Appointments.Remove(a);
+            _dbConnect.SaveChanges();
+
+            TempData["success"] = "le rendez vous a bien été supprimé";
+
+            return RedirectToAction("Index", "Home");
         }
 
-        // POST: AppointmentController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+
 
         public static DateTime makeDate(DateTime date)
         {

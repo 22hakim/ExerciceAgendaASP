@@ -29,9 +29,10 @@
                 <td>@appointment.BrokerInfo.Firstname @appointment.BrokerInfo.Lastname</td>
                 <td>@appointment.CustomerInfo.Firstname @appointment.CustomerInfo.Lastname</td>
                 <td>
-                    <a  asp-controller="Appointement" 
+                    <a  asp-controller="Appointment" 
                         asp-action="Delete" 
                         asp-route-id="@appointment.AppointmentVm.IdAppointment" 
+                        onclick="return confirm('voulez vous vraiment supprimer le rendez vous?')"
                         class="btn-danger btn">Supprimer </a>
                 </td>
 
